@@ -216,6 +216,36 @@ img {
 }
 
 /* =========================================================
+   LANGUAGE TOGGLE BUTTON
+========================================================= */
+.lang-toggle {
+    width: 60px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #263449;
+    background: rgba(15, 23, 42, 0.8);
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.lang-toggle:hover {
+    color: #38bdf8;
+    border-color: #38bdf8;
+    transform: translateY(-2px);
+}
+
+.lang-toggle i {
+    font-size: 14px;
+}
+
+/* =========================================================
    HERO
 ========================================================= */
 .hero {
@@ -332,6 +362,37 @@ img {
     border-color: #38bdf8;
     color: #38bdf8;
     transform: translateY(-3px);
+}
+
+/* =========================================================
+   NEW BUTTONS - WhatsApp & CV
+========================================================= */
+.btn-whatsapp {
+    background: #25D366;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background: #1da851;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+    color: #ffffff;
+}
+
+.btn-cv {
+    background: #dc3545;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+}
+
+.btn-cv:hover {
+    background: #b02a37;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(220, 53, 69, 0.4);
+    color: #ffffff;
 }
 
 .social-links {
@@ -900,8 +961,6 @@ img {
 /* =========================================================
    CERTIFICATES SECTION - MODERN COLORS (Blue & Gold)
 ========================================================= */
-
-/* تغيير لون الخلفية */
 .certificates-section {
     background: #0a0e1a !important;
     position: relative;
@@ -920,7 +979,6 @@ img {
     pointer-events: none;
 }
 
-/* تنسيق بطاقة الشهادة */
 .certificate-card {
     background: linear-gradient(145deg, #0d1525, #111b2f);
     border: 1px solid #1e2d45;
@@ -930,7 +988,6 @@ img {
     position: relative;
 }
 
-/* border متحرك عند التحويم */
 .certificate-card::after {
     content: '';
     position: absolute;
@@ -964,7 +1021,6 @@ img {
                 0 0 40px rgba(250, 204, 21, 0.05);
 }
 
-/* صورة الشهادة */
 .certificate-image {
     position: relative;
     overflow: hidden;
@@ -983,7 +1039,6 @@ img {
     transform: scale(1.08);
 }
 
-/* الأيقونة العلوية - شريط التمرير */
 .certificate-image::before {
     content: '📜';
     position: absolute;
@@ -999,7 +1054,6 @@ img {
     50% { transform: translateY(-8px) rotate(5deg); }
 }
 
-/* معلومات الشهادة */
 .certificate-info {
     padding: 22px 25px 25px;
     position: relative;
@@ -1030,7 +1084,6 @@ img {
     margin-bottom: 12px;
 }
 
-/* التاريخ ورقم الشهادة */
 .certificate-date {
     display: inline-block;
     color: #facc15;
@@ -1070,7 +1123,6 @@ img {
     background: rgba(71, 85, 105, 0.25);
 }
 
-/* Overlay عند التحويم */
 .certificate-overlay {
     position: absolute;
     top: 0;
@@ -1129,7 +1181,6 @@ img {
     transform: scale(1.05);
 }
 
-/* شارة الشهادة */
 .certificate-badge {
     position: absolute;
     top: 15px;
@@ -1146,9 +1197,8 @@ img {
 }
 
 /* =========================================================
-   EDUCATION - ENHANCED STYLING
+   EDUCATION
 ========================================================= */
-
 .timeline {
     max-width: 800px;
     margin: 0 auto;
@@ -1219,7 +1269,6 @@ img {
     overflow: hidden;
 }
 
-/* شريط علوي ملون */
 .timeline-content::before {
     content: '';
     position: absolute;
@@ -1286,7 +1335,6 @@ img {
     margin-bottom: 18px;
 }
 
-/* شريط التقدم الأكاديمي */
 .academic-progress {
     margin-top: 15px;
     padding-top: 15px;
@@ -1596,6 +1644,17 @@ body.light-mode .menu-toggle {
     background: #ffffff;
     border-color: #dbe4ee;
     color: #334155;
+}
+
+body.light-mode .lang-toggle {
+    background: #ffffff;
+    border-color: #dbe4ee;
+    color: #334155;
+}
+
+body.light-mode .lang-toggle:hover {
+    color: #0284c7;
+    border-color: #0284c7;
 }
 
 body.light-mode .hero, 
@@ -2146,6 +2205,15 @@ body.light-mode .back-to-top:hover {
     
     .certificate-overlay {
         gap: 8px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - HERO BUTTONS
+========================================================= */
+@media (max-width: 520px) {
+    .hero-buttons .btn {
+        width: 100%;
     }
 }
 
