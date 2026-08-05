@@ -45,6 +45,27 @@ img {
     margin: 0 auto;
 }
 
+/* =========================================================
+   READING PROGRESS BAR
+========================================================= */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(56, 189, 248, 0.1);
+    z-index: 1001;
+}
+
+.progress-bar-read {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #38bdf8, #facc15);
+    border-radius: 0 4px 4px 0;
+    transition: width 0.1s ease;
+}
+
 /* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 9px;
@@ -333,6 +354,26 @@ img {
     font-weight: 700;
     border: 1px solid transparent;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:active::after {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-sm {
@@ -565,7 +606,7 @@ img {
 }
 
 /* =========================================================
-   ABOUT IMAGE - PROFESSIONAL STYLING
+   PROFILE IMAGE - ENHANCED
 ========================================================= */
 .about-image {
     display: flex;
@@ -580,19 +621,23 @@ img {
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid #38bdf8;
-    box-shadow: 0 20px 50px rgba(56, 189, 248, 0.15);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+    transition: all 0.4s ease;
     cursor: pointer;
 }
 
-/* تأثير الإطار الخارجي المتحرك */
+.profile-image-wrapper:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 50px rgba(56, 189, 248, 0.3);
+}
+
 .profile-image-wrapper::before {
     content: '';
     position: absolute;
-    inset: -8px;
+    inset: -6px;
     border-radius: 50%;
     padding: 4px;
-    background: conic-gradient(from 0deg, #38bdf8, #facc15, #38bdf8, #facc15, #38bdf8);
+    background: conic-gradient(from 0deg, #38bdf8, #facc15, #38bdf8);
     background-size: 300% 300%;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -602,20 +647,13 @@ img {
     animation: rotateBorder 4s linear infinite;
 }
 
-@keyframes rotateBorder {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
-}
-
 .profile-image-wrapper:hover::before {
     opacity: 1;
 }
 
-.profile-image-wrapper:hover {
-    transform: scale(1.03);
-    border-color: transparent;
-    box-shadow: 0 25px 60px rgba(56, 189, 248, 0.25),
-                0 0 80px rgba(250, 204, 21, 0.1);
+@keyframes rotateBorder {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
 }
 
 .profile-image {
@@ -645,7 +683,7 @@ img {
     color: #ffffff;
     font-size: 14px;
     font-weight: 500;
-    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: bottom 0.4s ease;
     letter-spacing: 0.5px;
 }
 
@@ -656,24 +694,6 @@ img {
 .profile-image-overlay i {
     color: #38bdf8;
     font-size: 18px;
-}
-
-/* تأثير لمعان عند التحويم */
-.profile-image-wrapper::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(56, 189, 248, 0.1), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-}
-
-.profile-image-wrapper:hover::after {
-    opacity: 1;
 }
 
 /* About Content */
@@ -807,6 +827,26 @@ img {
 }
 
 /* =========================================================
+   ANIMATED ICONS
+========================================================= */
+.skill-icon {
+    transition: transform 0.4s ease;
+}
+
+.skill-card:hover .skill-icon {
+    transform: rotateY(180deg);
+}
+
+.project-icon {
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.project-card:hover .project-icon {
+    transform: scale(1.1) rotate(-5deg);
+    color: #facc15;
+}
+
+/* =========================================================
    PROJECTS
 ========================================================= */
 .projects-section {
@@ -901,43 +941,47 @@ img {
     font-size: 11px;
 }
 
-/* ===== PROJECT LINKS ===== */
+/* =========================================================
+   PROJECT LINKS - ENHANCED
+========================================================= */
 .project-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     margin-top: 5px;
 }
 
 .project-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
+    gap: 6px;
+    font-size: 12px;
     font-weight: 600;
     transition: all 0.3s ease;
-    padding: 8px 16px;
-    border-radius: 8px;
-    background: rgba(56, 189, 248, 0.08);
+    padding: 6px 14px;
+    border-radius: 6px;
     border: 1px solid transparent;
 }
 
 .project-link i {
-    font-size: 16px;
+    font-size: 14px;
 }
 
+/* GitHub Link */
 .project-link.github-link {
     color: #cbd5e1;
     border-color: #334155;
+    background: rgba(15, 23, 42, 0.4);
 }
 
 .project-link.github-link:hover {
     color: #38bdf8;
     border-color: #38bdf8;
-    background: rgba(56, 189, 248, 0.12);
+    background: rgba(56, 189, 248, 0.1);
     transform: translateY(-2px);
 }
 
+/* LinkedIn Link */
 .project-link.linkedin-link {
     color: #0a66c2;
     border-color: #0a66c2;
@@ -959,7 +1003,7 @@ img {
 }
 
 /* =========================================================
-   CERTIFICATES SECTION - MODERN COLORS (Blue & Gold)
+   CERTIFICATES SECTION
 ========================================================= */
 .certificates-section {
     background: #0a0e1a !important;
@@ -984,7 +1028,7 @@ img {
     border: 1px solid #1e2d45;
     border-radius: 16px;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s ease;
     position: relative;
 }
 
@@ -1370,6 +1414,46 @@ img {
 }
 
 /* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+.success-message {
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(56, 189, 248, 0.05);
+    border: 2px solid #38bdf8;
+    border-radius: 16px;
+    animation: fadeInUp 0.6s ease;
+}
+
+.success-message i {
+    font-size: 50px;
+    color: #22c55e;
+    margin-bottom: 15px;
+}
+
+.success-message h3 {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.success-message p {
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
    CONTACT
 ========================================================= */
 .contact-section {
@@ -1746,9 +1830,18 @@ body.light-mode .footer {
 
 body.light-mode .footer p { color: #64748b; }
 
-/* =========================================================
-   LIGHT MODE - PROFILE IMAGE
-========================================================= */
+body.light-mode .success-message {
+    background: rgba(56, 189, 248, 0.08);
+}
+
+body.light-mode .success-message h3 {
+    color: #0f172a;
+}
+
+body.light-mode .success-message p {
+    color: #475569;
+}
+
 body.light-mode .profile-image-wrapper {
     border-color: #0284c7;
     box-shadow: 0 20px 50px rgba(14, 165, 233, 0.15);
@@ -1760,7 +1853,7 @@ body.light-mode .profile-image-wrapper:hover {
 }
 
 body.light-mode .profile-image-wrapper::before {
-    background: conic-gradient(from 0deg, #0284c7, #eab308, #0284c7, #eab308, #0284c7);
+    background: conic-gradient(from 0deg, #0284c7, #eab308, #0284c7);
     background-size: 300% 300%;
 }
 
@@ -1773,22 +1866,18 @@ body.light-mode .profile-image-overlay i {
     color: #0284c7;
 }
 
-/* =========================================================
-   LIGHT MODE - PROJECT LINKS
-========================================================= */
 body.light-mode .project-link.github-link {
     color: #334155;
-    border-color: #cbd5e1;
+    border-color: #dbe4ee;
+    background: rgba(0, 0, 0, 0.04);
 }
 
 body.light-mode .project-link.github-link:hover {
     color: #0284c7;
     border-color: #0284c7;
+    background: rgba(2, 132, 199, 0.08);
 }
 
-/* =========================================================
-   LIGHT MODE - CERTIFICATES
-========================================================= */
 body.light-mode .certificates-section {
     background: #f8fafc !important;
 }
@@ -1806,7 +1895,6 @@ body.light-mode .certificate-card {
 body.light-mode .certificate-card::after {
     background: linear-gradient(45deg, #0284c7, #eab308, #0284c7, #eab308);
     background-size: 300% 300%;
-    animation: gradientMove 4s ease infinite;
 }
 
 body.light-mode .certificate-card:hover {
@@ -1876,13 +1964,9 @@ body.light-mode .certificate-badge {
     color: #ffffff;
 }
 
-/* =========================================================
-   LIGHT MODE - EDUCATION
-========================================================= */
 body.light-mode .timeline-item::before {
     background: linear-gradient(to bottom, #0284c7, #eab308, #0284c7);
     background-size: 100% 300%;
-    animation: timelineGradient 4s ease-in-out infinite;
 }
 
 body.light-mode .timeline-dot {
@@ -1942,9 +2026,6 @@ body.light-mode .academic-bar {
     background: #e2e8f0;
 }
 
-/* =========================================================
-   LIGHT MODE - SKILLS
-========================================================= */
 body.light-mode .progress-bar {
     background: #e2e8f0;
 }

@@ -28,10 +28,18 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- READING PROGRESS BAR -->
+    <div class="progress-container">
+        <div class="progress-bar-read" id="progressBar"></div>
+    </div>
 
     <!-- LOADING SCREEN -->
     <div id="loader" class="loader">
@@ -49,22 +57,16 @@
             </a>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active" data-translate="home">Home</a>
-                <a href="#about" class="nav-link" data-translate="about">About</a>
-                <a href="#skills" class="nav-link" data-translate="skills">Skills</a>
-                <a href="#projects" class="nav-link" data-translate="projects">Projects</a>
-                <a href="#certificates" class="nav-link" data-translate="certificates">Certificates</a>
-                <a href="#education" class="nav-link" data-translate="education">Education</a>
-                <a href="#contact" class="nav-link" data-translate="contact">Contact</a>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certificates" class="nav-link">Certificates</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
 
             <div class="nav-actions">
-                <!-- Language Toggle -->
-                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
-                    <i class="fas fa-globe"></i>
-                    <span id="langText">EN</span>
-                </button>
-                
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -81,18 +83,18 @@
         <section id="home" class="hero">
             <div class="container hero-container">
                 <div class="hero-content">
-                    <p class="hero-greeting" data-translate="greeting">Hello, I'm</p>
+                    <p class="hero-greeting">Hello, I'm</p>
                     <h1>Ameer <span>Mashahreh</span></h1>
-                    <h2 class="typing-text" data-translate="title">Computer Engineering Student</h2>
-                    <p class="hero-description" data-translate="description">
+                    <h2 class="typing-text">Computer Engineering Student</h2>
+                    <p class="hero-description">
                         I am a Computer Engineering student passionate about software development, artificial intelligence, cybersecurity, and building practical technology solutions.
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary" data-translate="viewProjects">
+                        <a href="#projects" class="btn btn-primary">
                             <i class="fas fa-code"></i> View My Projects
                         </a>
-                        <a href="#contact" class="btn btn-secondary" data-translate="contactMe">
+                        <a href="#contact" class="btn btn-secondary">
                             <i class="fas fa-envelope"></i> Contact Me
                         </a>
                         <!-- WhatsApp Button -->
@@ -156,9 +158,9 @@
         <section id="about" class="section about-section">
             <div class="container">
                 <div class="section-heading" data-aos="fade-up">
-                    <span class="section-label" data-translate="aboutLabel">GET TO KNOW ME</span>
+                    <span class="section-label">GET TO KNOW ME</span>
                     <h2>About <span>Me</span></h2>
-                    <p data-translate="title">Computer Engineering Student</p>
+                    <p>Computer Engineering Student</p>
                 </div>
 
                 <div class="about-grid">
@@ -180,33 +182,33 @@
                     </div>
 
                     <div class="about-content" data-aos="fade-left">
-                        <p data-translate="aboutText">I'm <strong>Ameer Mashahreh</strong>, a Computer Engineering student at <strong>Al-Quds University – Abu Dis</strong>.</p>
-                        <p data-translate="aboutText2">I am interested in software development, artificial intelligence, cybersecurity, networking, and modern technology.</p>
-                        <p data-translate="aboutText3">I enjoy transforming ideas into practical projects and continuously improving my programming and engineering skills.</p>
+                        <p>I'm <strong>Ameer Mashahreh</strong>, a Computer Engineering student at <strong>Al-Quds University – Abu Dis</strong>.</p>
+                        <p>I am interested in software development, artificial intelligence, cybersecurity, networking, and modern technology.</p>
+                        <p>I enjoy transforming ideas into practical projects and continuously improving my programming and engineering skills.</p>
                         
                         <div class="about-info-items">
                             <div class="about-info-item">
-                                <span class="info-label"><i class="fas fa-user"></i> <span data-translate="fullName">Full Name:</span></span>
+                                <span class="info-label"><i class="fas fa-user"></i> Full Name:</span>
                                 <span class="info-value">Ameer Mashahreh</span>
                             </div>
                             <div class="about-info-item">
-                                <span class="info-label"><i class="fas fa-graduation-cap"></i> <span data-translate="field">Field:</span></span>
+                                <span class="info-label"><i class="fas fa-graduation-cap"></i> Field:</span>
                                 <span class="info-value">Computer Engineering</span>
                             </div>
                             <div class="about-info-item">
-                                <span class="info-label"><i class="fas fa-university"></i> <span data-translate="university">University:</span></span>
+                                <span class="info-label"><i class="fas fa-university"></i> University:</span>
                                 <span class="info-value">Al-Quds University</span>
                             </div>
                             <div class="about-info-item">
-                                <span class="info-label"><i class="fas fa-map-marker-alt"></i> <span data-translate="location">Location:</span></span>
+                                <span class="info-label"><i class="fas fa-map-marker-alt"></i> Location:</span>
                                 <span class="info-value">Palestine</span>
                             </div>
                             <div class="about-info-item">
-                                <span class="info-label"><i class="fas fa-phone"></i> <span data-translate="phone">Phone:</span></span>
+                                <span class="info-label"><i class="fas fa-phone"></i> Phone:</span>
                                 <span class="info-value">+972-522299322</span>
                             </div>
                             <div class="about-info-item">
-                                <span class="info-label"><i class="fas fa-envelope"></i> <span data-translate="email">Email:</span></span>
+                                <span class="info-label"><i class="fas fa-envelope"></i> Email:</span>
                                 <span class="info-value">ameermashahreh3@gmail.com</span>
                             </div>
                         </div>
@@ -216,19 +218,19 @@
                 <div class="stats-grid">
                     <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
                         <span class="stat-number" data-target="3">0</span>
-                        <span class="stat-title" data-translate="projects">Projects</span>
+                        <span class="stat-title">Projects</span>
                     </div>
                     <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
                         <span class="stat-number" data-target="3">0</span>
-                        <span class="stat-title" data-translate="certificates">Certificates</span>
+                        <span class="stat-title">Certificates</span>
                     </div>
                     <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
                         <span class="stat-number" data-target="10">0</span>
-                        <span class="stat-title" data-translate="technologies">Technologies</span>
+                        <span class="stat-title">Technologies</span>
                     </div>
                     <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
                         <span class="stat-number" data-target="5">0</span>
-                        <span class="stat-title" data-translate="interests">Interests</span>
+                        <span class="stat-title">Interests</span>
                     </div>
                 </div>
             </div>
@@ -238,7 +240,7 @@
         <section id="skills" class="section">
             <div class="container">
                 <div class="section-heading" data-aos="fade-up">
-                    <span class="section-label" data-translate="skillsLabel">WHAT I WORK WITH</span>
+                    <span class="section-label">WHAT I WORK WITH</span>
                     <h2>My <span>Skills</span></h2>
                 </div>
 
@@ -330,23 +332,26 @@
         <section id="projects" class="section projects-section">
             <div class="container">
                 <div class="section-heading" data-aos="fade-up">
-                    <span class="section-label" data-translate="workLabel">MY WORK</span>
+                    <span class="section-label">MY WORK</span>
                     <h2>Featured <span>Projects</span></h2>
                 </div>
 
                 <div class="projects-grid">
-                    <!-- MedicalVault Project -->
+                    <!-- Medical Shield Project -->
                     <article class="project-card" data-aos="flip-up" data-aos-delay="100">
                         <div class="project-number">01</div>
                         <div class="project-icon"><i class="fas fa-shield-halved"></i></div>
-                        <h3>MedicalVault</h3>
-                        <p>A Python-based application designed to enhance the security and privacy of electronic medical records with robust user authentication and secure data management.</p>
+                        <h3>Medical Shield System</h3>
+                        <p>An enterprise-grade healthcare platform connecting doctors, paramedics, and administrators with IoMT, AI co-pilot, and cyber command center features.</p>
                         <div class="project-tags">
-                            <span>Python</span><span>SQLite</span><span>Cybersecurity</span>
+                            <span>Python</span><span>Streamlit</span><span>AI</span><span>Cybersecurity</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/ameermashahrh/MedicalVault" target="_blank" rel="noopener noreferrer" class="project-link github-link">
-                                <i class="fab fa-github"></i> View on GitHub
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://www.linkedin.com/posts/ameer-mashahreh-881896398_zytekengineers-healthtech-cybersecurity-activity-7480848284899594240-KPzw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGGppmEBHxlpupGXBZPgvpdw_7EyJiT_GgU" target="_blank" rel="noopener noreferrer" class="project-link linkedin-link">
+                                <i class="fab fa-linkedin-in"></i> LinkedIn
                             </a>
                         </div>
                     </article>
@@ -355,14 +360,17 @@
                     <article class="project-card" data-aos="flip-up" data-aos-delay="200">
                         <div class="project-number">02</div>
                         <div class="project-icon"><i class="fas fa-building"></i></div>
-                        <h3>Smart Stadium Access Control</h3>
-                        <p>An automated smart stadium seat access and ticketing system leveraging QR code technology with real-time ticket validation and dynamic seat management.</p>
+                        <h3>NEXUS Global Matrix OS</h3>
+                        <p>Smart Stadium Operations Center & Digital Twin with real-time attendance monitoring, 3D structural mapping, and strategic command center features.</p>
                         <div class="project-tags">
-                            <span>Python</span><span>OpenCV</span><span>QR Code</span><span>SQLite</span>
+                            <span>Python</span><span>Streamlit</span><span>Plotly</span><span>Digital Twin</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/ameermashahrh/smart-stadium" target="_blank" rel="noopener noreferrer" class="project-link github-link">
-                                <i class="fab fa-github"></i> View on GitHub
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://www.linkedin.com/posts/ameer-mashahreh-881896398_python-streamlit-datavisualization-activity-7475965595356872704-abCT?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGGppmEBHxlpupGXBZPgvpdw_7EyJiT_GgU" target="_blank" rel="noopener noreferrer" class="project-link linkedin-link">
+                                <i class="fab fa-linkedin-in"></i> LinkedIn
                             </a>
                         </div>
                     </article>
@@ -378,7 +386,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/ameermashahrh/qiem-network-c2" target="_blank" rel="noopener noreferrer" class="project-link github-link">
-                                <i class="fab fa-github"></i> View on GitHub
+                                <i class="fab fa-github"></i> Code
                             </a>
                         </div>
                     </article>
@@ -396,9 +404,9 @@
         <section id="certificates" class="section certificates-section">
             <div class="container">
                 <div class="section-heading" data-aos="fade-up">
-                    <span class="section-label" data-translate="certificatesLabel">MY CERTIFICATES</span>
+                    <span class="section-label">MY CERTIFICATES</span>
                     <h2>Certificates & <span>Awards</span></h2>
-                    <p data-translate="certificatesDesc">Professional certifications and academic achievements</p>
+                    <p>Professional certifications and academic achievements</p>
                 </div>
 
                 <div class="certificates-grid">
@@ -496,7 +504,7 @@
         <section id="education" class="section">
             <div class="container">
                 <div class="section-heading" data-aos="fade-up">
-                    <span class="section-label" data-translate="educationLabel">MY ACADEMIC JOURNEY</span>
+                    <span class="section-label">MY ACADEMIC JOURNEY</span>
                     <h2><span>Education</span></h2>
                 </div>
 
@@ -532,15 +540,15 @@
         <section id="contact" class="section contact-section">
             <div class="container">
                 <div class="section-heading" data-aos="fade-up">
-                    <span class="section-label" data-translate="contactLabel">LET'S CONNECT</span>
+                    <span class="section-label">LET'S CONNECT</span>
                     <h2>Get In <span>Touch</span></h2>
-                    <p data-translate="contactDesc">Let's build something together.</p>
+                    <p>Let's build something together.</p>
                 </div>
 
                 <div class="contact-grid">
                     <div class="contact-info" data-aos="fade-right">
-                        <h3 data-translate="contactTitle">Let's connect.</h3>
-                        <p data-translate="contactText">If you have a project idea, opportunity, collaboration, or simply want to connect, feel free to reach out.</p>
+                        <h3>Let's connect.</h3>
+                        <p>If you have a project idea, opportunity, collaboration, or simply want to connect, feel free to reach out.</p>
 
                         <div class="contact-items">
                             <a href="mailto:ameermashahreh3@gmail.com" class="contact-item">
@@ -585,20 +593,21 @@
                         </div>
                     </div>
 
-                    <form class="contact-form" id="contactForm" data-aos="fade-left">
+                    <!-- Contact Form with EmailJS -->
+                    <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label for="name" data-translate="yourName">Your Name</label>
+                            <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter your name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email" data-translate="yourEmail">Your Email</label>
+                            <label for="email">Your Email</label>
                             <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         </div>
                         <div class="form-group">
-                            <label for="message" data-translate="message">Message</label>
+                            <label for="message">Message</label>
                             <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary submit-button" data-translate="sendMessage">
+                        <button type="submit" class="btn btn-primary submit-button">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
@@ -632,9 +641,6 @@
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <!-- Main JavaScript -->
     <script src="js/script.js"></script>

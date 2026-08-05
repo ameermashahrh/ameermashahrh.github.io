@@ -11,6 +11,19 @@ window.addEventListener("load", () => {
 });
 
 // =========================================
+// READING PROGRESS BAR
+// =========================================
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+        progressBar.style.width = progress + '%';
+    }
+});
+
+// =========================================
 // MOBILE MENU TOGGLE
 // =========================================
 const menuToggle = document.getElementById("menuToggle");
@@ -77,119 +90,6 @@ if (savedTheme === "light") {
     if (icon) {
         icon.className = "fas fa-moon";
     }
-}
-
-// =========================================
-// LANGUAGE TOGGLE (AR/EN)
-// =========================================
-const langToggle = document.getElementById('langToggle');
-const langText = document.getElementById('langText');
-let isArabic = false;
-
-// محتوى الترجمة
-const translations = {
-    en: {
-        home: 'Home',
-        about: 'About',
-        skills: 'Skills',
-        projects: 'Projects',
-        certificates: 'Certificates',
-        education: 'Education',
-        contact: 'Contact',
-        greeting: "Hello, I'm",
-        title: 'Computer Engineering Student',
-        description: 'I am a Computer Engineering student passionate about software development, artificial intelligence, cybersecurity, and building practical technology solutions.',
-        viewProjects: 'View My Projects',
-        contactMe: 'Contact Me',
-        aboutLabel: 'GET TO KNOW ME',
-        aboutText: "I'm Ameer Mashahreh, a Computer Engineering student at Al-Quds University – Abu Dis.",
-        aboutText2: 'I am interested in software development, artificial intelligence, cybersecurity, networking, and modern technology.',
-        aboutText3: 'I enjoy transforming ideas into practical projects and continuously improving my programming and engineering skills.',
-        fullName: 'Full Name:',
-        field: 'Field:',
-        university: 'University:',
-        location: 'Location:',
-        phone: 'Phone:',
-        email: 'Email:',
-        skillsLabel: 'WHAT I WORK WITH',
-        workLabel: 'MY WORK',
-        certificatesLabel: 'MY CERTIFICATES',
-        certificatesDesc: 'Professional certifications and academic achievements',
-        educationLabel: 'MY ACADEMIC JOURNEY',
-        contactLabel: "LET'S CONNECT",
-        contactTitle: "Let's connect.",
-        contactText: 'If you have a project idea, opportunity, collaboration, or simply want to connect, feel free to reach out.',
-        yourName: 'Your Name',
-        yourEmail: 'Your Email',
-        message: 'Message',
-        sendMessage: 'Send Message',
-        contactDesc: "Let's build something together.",
-        technologies: 'Technologies',
-        interests: 'Interests'
-    },
-    ar: {
-        home: 'الرئيسية',
-        about: 'عني',
-        skills: 'المهارات',
-        projects: 'المشاريع',
-        certificates: 'الشهادات',
-        education: 'التعليم',
-        contact: 'اتصل بي',
-        greeting: 'مرحباً، أنا',
-        title: 'طالب هندسة حاسوب',
-        description: 'أنا طالب هندسة حاسوب شغوف بتطوير البرمجيات، الذكاء الاصطناعي، الأمن السيبراني، وبناء حلول تقنية عملية.',
-        viewProjects: 'عرض مشاريعي',
-        contactMe: 'تواصل معي',
-        aboutLabel: 'تعرف علي',
-        aboutText: 'أنا عمير مشاهرة، طالب هندسة حاسوب في جامعة القدس – أبو ديس.',
-        aboutText2: 'أنا مهتم بتطوير البرمجيات، الذكاء الاصطناعي، الأمن السيبراني، الشبكات، والتكنولوجيا الحديثة.',
-        aboutText3: 'أستمتع بتحويل الأفكار إلى مشاريع عملية وتحسين مهاراتي في البرمجة والهندسة باستمرار.',
-        fullName: 'الاسم الكامل:',
-        field: 'التخصص:',
-        university: 'الجامعة:',
-        location: 'الموقع:',
-        phone: 'الهاتف:',
-        email: 'البريد الإلكتروني:',
-        skillsLabel: 'ماذا أعمل',
-        workLabel: 'أعمالي',
-        certificatesLabel: 'شهاداتي',
-        certificatesDesc: 'الشهادات المهنية والإنجازات الأكاديمية',
-        educationLabel: 'رحلتي الأكاديمية',
-        contactLabel: 'تواصل معي',
-        contactTitle: 'تواصل معي',
-        contactText: 'إذا كان لديك فكرة مشروع، فرصة، تعاون، أو ببساطة تريد التواصل، لا تتردد في الاتصال بي.',
-        yourName: 'الاسم',
-        yourEmail: 'البريد الإلكتروني',
-        message: 'الرسالة',
-        sendMessage: 'إرسال الرسالة',
-        contactDesc: 'لنبني شيئاً معاً.',
-        technologies: 'التقنيات',
-        interests: 'الاهتمامات'
-    }
-};
-
-if (langToggle) {
-    langToggle.addEventListener('click', function() {
-        isArabic = !isArabic;
-        langText.textContent = isArabic ? 'عربي' : 'EN';
-        
-        document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
-        document.documentElement.lang = isArabic ? 'ar' : 'en';
-        
-        updateContent(isArabic ? 'ar' : 'en');
-    });
-}
-
-function updateContent(lang) {
-    const t = translations[lang];
-    if (!t) return;
-    
-    document.querySelectorAll('[data-translate]').forEach(el => {
-        const key = el.dataset.translate;
-        if (t[key] !== undefined) {
-            el.textContent = t[key];
-        }
-    });
 }
 
 // =========================================
@@ -385,27 +285,67 @@ document.addEventListener('keydown', (e) => {
 });
 
 // =========================================
-// CONTACT FORM HANDLER
+// EMAILJS - CONTACT FORM
 // =========================================
+
+// تهيئة EmailJS مع Public Key
+(function() {
+    emailjs.init("3zRaobthulBt87hD0");
+})();
+
+// معالجة نموذج الاتصال
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
-    contactForm.addEventListener("submit", function (event) {
+    contactForm.addEventListener("submit", function(event) {
         event.preventDefault();
         
         const submitBtn = this.querySelector('.submit-button');
         const originalText = submitBtn.innerHTML;
+        
+        // تغيير شكل الزر أثناء الإرسال
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        // Simulate sending (replace with actual EmailJS when ready)
-        setTimeout(() => {
-            const name = document.getElementById('name').value;
-            alert(`✅ Thank you ${name}! Your message has been sent successfully. I will get back to you soon.`);
-            contactForm.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }, 1500);
+        // جمع البيانات من النموذج
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+        
+        // إعداد parameters للإرسال
+        const templateParams = {
+            name: name,
+            email: email,
+            message: message,
+            to_email: "ameermashahreh3@gmail.com"
+        };
+        
+        // إرسال البريد عبر EmailJS
+        emailjs.send("service_0bb9kgj", "template_awu0e3e", templateParams)
+            .then(function(response) {
+                console.log("✅ Email sent successfully!", response.status, response.text);
+                
+                // إنشاء رسالة نجاح
+                const successMessage = document.createElement('div');
+                successMessage.className = 'success-message';
+                successMessage.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank You!</h3>
+                    <p>Your message has been sent successfully. I will get back to you soon.</p>
+                `;
+                
+                // إضافة رسالة النجاح
+                contactForm.parentNode.insertBefore(successMessage, contactForm.nextSibling);
+                contactForm.style.display = 'none';
+            })
+            .catch(function(error) {
+                console.error("❌ EmailJS Error:", error);
+                alert("❌ Failed to send message. Please try again.");
+            })
+            .finally(function() {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
     });
 }
 
