@@ -288,12 +288,10 @@ document.addEventListener('keydown', (e) => {
 // EMAILJS - CONTACT FORM
 // =========================================
 
-// تهيئة EmailJS مع Public Key
 (function() {
     emailjs.init("3zRaobthulBt87hD0");
 })();
 
-// معالجة نموذج الاتصال
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
@@ -303,16 +301,13 @@ if (contactForm) {
         const submitBtn = this.querySelector('.submit-button');
         const originalText = submitBtn.innerHTML;
         
-        // تغيير شكل الزر أثناء الإرسال
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        // جمع البيانات من النموذج
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
         
-        // إعداد parameters للإرسال
         const templateParams = {
             name: name,
             email: email,
@@ -320,12 +315,10 @@ if (contactForm) {
             to_email: "ameermashahreh3@gmail.com"
         };
         
-        // إرسال البريد عبر EmailJS
         emailjs.send("service_0bb9kgj", "template_awu0e3e", templateParams)
             .then(function(response) {
                 console.log("✅ Email sent successfully!", response.status, response.text);
                 
-                // إنشاء رسالة نجاح
                 const successMessage = document.createElement('div');
                 successMessage.className = 'success-message';
                 successMessage.innerHTML = `
@@ -334,7 +327,6 @@ if (contactForm) {
                     <p>Your message has been sent successfully. I will get back to you soon.</p>
                 `;
                 
-                // إضافة رسالة النجاح
                 contactForm.parentNode.insertBefore(successMessage, contactForm.nextSibling);
                 contactForm.style.display = 'none';
             })

@@ -237,36 +237,6 @@ img {
 }
 
 /* =========================================================
-   LANGUAGE TOGGLE BUTTON
-========================================================= */
-.lang-toggle {
-    width: 60px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #263449;
-    background: rgba(15, 23, 42, 0.8);
-    color: #cbd5e1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    transition: all 0.3s ease;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.lang-toggle:hover {
-    color: #38bdf8;
-    border-color: #38bdf8;
-    transform: translateY(-2px);
-}
-
-.lang-toggle i {
-    font-size: 14px;
-}
-
-/* =========================================================
    HERO
 ========================================================= */
 .hero {
@@ -668,7 +638,6 @@ img {
     transform: scale(1.05);
 }
 
-/* Overlay على الصورة */
 .profile-image-overlay {
     position: absolute;
     bottom: -100%;
@@ -967,7 +936,6 @@ img {
     font-size: 14px;
 }
 
-/* GitHub Link */
 .project-link.github-link {
     color: #cbd5e1;
     border-color: #334155;
@@ -981,7 +949,6 @@ img {
     transform: translateY(-2px);
 }
 
-/* LinkedIn Link */
 .project-link.linkedin-link {
     color: #0a66c2;
     border-color: #0a66c2;
@@ -1000,6 +967,197 @@ img {
     display: flex;
     justify-content: center;
     margin-top: 40px;
+}
+
+/* =========================================================
+   EXPERIENCE SECTION
+========================================================= */
+.experience-section {
+    background: #0a0e1a !important;
+    position: relative;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+}
+
+.experience-card {
+    background: #0d1525;
+    border: 1px solid #1e2d45;
+    border-radius: 16px;
+    padding: 28px 25px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #38bdf8, #facc15);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.experience-card:hover::before {
+    transform: scaleX(1);
+}
+
+.experience-card:hover {
+    transform: translateY(-8px);
+    border-color: #38bdf8;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.experience-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.experience-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    font-size: 22px;
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover .experience-icon {
+    background: rgba(56, 189, 248, 0.2);
+    transform: rotate(-5deg) scale(1.05);
+}
+
+.experience-company h3 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.experience-card:hover .experience-company h3 {
+    color: #38bdf8;
+}
+
+.experience-role {
+    display: block;
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.experience-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #facc15;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 10px;
+    background: rgba(250, 204, 21, 0.08);
+    border-radius: 20px;
+    border: 1px solid rgba(250, 204, 21, 0.1);
+}
+
+.experience-date i {
+    font-size: 11px;
+}
+
+.experience-body p {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.experience-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 4px 0;
+}
+
+.experience-list li i {
+    color: #38bdf8;
+    font-size: 14px;
+    margin-top: 2px;
+    min-width: 16px;
+}
+
+/* =========================================================
+   EXPERIENCE CERTIFICATE PROOF
+========================================================= */
+.experience-certificate {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(71, 85, 105, 0.2);
+}
+
+.certificate-proof {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #38bdf8;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 16px;
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.12);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.certificate-proof:hover {
+    background: rgba(56, 189, 248, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.12);
+    border-color: #38bdf8;
+}
+
+.certificate-thumbnail {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    flex-shrink: 0;
+}
+
+.certificate-proof span {
+    flex: 1;
+}
+
+.certificate-proof i:last-child {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-left: auto;
 }
 
 /* =========================================================
@@ -1730,17 +1888,6 @@ body.light-mode .menu-toggle {
     color: #334155;
 }
 
-body.light-mode .lang-toggle {
-    background: #ffffff;
-    border-color: #dbe4ee;
-    color: #334155;
-}
-
-body.light-mode .lang-toggle:hover {
-    color: #0284c7;
-    border-color: #0284c7;
-}
-
 body.light-mode .hero, 
 body.light-mode .section {
     background: #f8fafc;
@@ -1830,18 +1977,6 @@ body.light-mode .footer {
 
 body.light-mode .footer p { color: #64748b; }
 
-body.light-mode .success-message {
-    background: rgba(56, 189, 248, 0.08);
-}
-
-body.light-mode .success-message h3 {
-    color: #0f172a;
-}
-
-body.light-mode .success-message p {
-    color: #475569;
-}
-
 body.light-mode .profile-image-wrapper {
     border-color: #0284c7;
     box-shadow: 0 20px 50px rgba(14, 165, 233, 0.15);
@@ -1876,6 +2011,66 @@ body.light-mode .project-link.github-link:hover {
     color: #0284c7;
     border-color: #0284c7;
     background: rgba(2, 132, 199, 0.08);
+}
+
+body.light-mode .experience-section {
+    background: #f8fafc !important;
+}
+
+body.light-mode .experience-card {
+    background: #ffffff;
+    border-color: #dbe4ee;
+}
+
+body.light-mode .experience-card:hover {
+    border-color: #0284c7;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .experience-company h3 {
+    color: #0f172a;
+}
+
+body.light-mode .experience-card:hover .experience-company h3 {
+    color: #0284c7;
+}
+
+body.light-mode .experience-role {
+    color: #475569;
+}
+
+body.light-mode .experience-body p {
+    color: #475569;
+}
+
+body.light-mode .experience-list li {
+    color: #475569;
+}
+
+body.light-mode .experience-date {
+    color: #eab308;
+    background: rgba(234, 179, 8, 0.08);
+    border-color: rgba(234, 179, 8, 0.15);
+}
+
+body.light-mode .experience-certificate {
+    border-top-color: rgba(71, 85, 105, 0.1);
+}
+
+body.light-mode .certificate-proof {
+    color: #0284c7;
+    background: rgba(2, 132, 199, 0.05);
+    border-color: rgba(2, 132, 199, 0.1);
+}
+
+body.light-mode .certificate-proof:hover {
+    background: rgba(2, 132, 199, 0.1);
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.1);
+    border-color: #0284c7;
+}
+
+body.light-mode .certificate-thumbnail {
+    border-color: rgba(2, 132, 199, 0.15);
 }
 
 body.light-mode .certificates-section {
@@ -2043,6 +2238,18 @@ body.light-mode .back-to-top:hover {
     background: #0369a1;
 }
 
+body.light-mode .success-message {
+    background: rgba(56, 189, 248, 0.08);
+}
+
+body.light-mode .success-message h3 {
+    color: #0f172a;
+}
+
+body.light-mode .success-message p {
+    color: #475569;
+}
+
 /* =========================================================
    RESPONSIVE - GENERAL
 ========================================================= */
@@ -2106,6 +2313,18 @@ body.light-mode .back-to-top:hover {
     .projects-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
     .certificates-grid { grid-template-columns: 1fr; }
+    .experience-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 /* =========================================================
@@ -2295,6 +2514,28 @@ body.light-mode .back-to-top:hover {
 @media (max-width: 520px) {
     .hero-buttons .btn {
         width: 100%;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - EXPERIENCE CERTIFICATE
+========================================================= */
+@media (max-width: 520px) {
+    .certificate-proof {
+        flex-wrap: wrap;
+        padding: 12px;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .certificate-thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .certificate-proof span {
+        width: 100%;
+        font-size: 12px;
     }
 }
 
