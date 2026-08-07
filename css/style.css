@@ -887,18 +887,52 @@ img {
     margin-bottom: 12px;
 }
 
-.project-card p {
+.project-description {
     color: #94a3b8;
     font-size: 14px;
     line-height: 1.8;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    min-height: 60px;
+}
+
+/* =========================================================
+   PROJECT DETAILS
+========================================================= */
+.project-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.project-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cbd5e1;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 8px;
+    background: rgba(56, 189, 248, 0.06);
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.06);
+}
+
+.project-detail-item i {
+    color: #38bdf8;
+    font-size: 14px;
+    width: 18px;
+}
+
+.project-detail-item span {
+    color: #94a3b8;
 }
 
 .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .project-tags span {
@@ -911,7 +945,7 @@ img {
 }
 
 /* =========================================================
-   PROJECT LINKS - ENHANCED
+   PROJECT LINKS
 ========================================================= */
 .project-links {
     display: flex;
@@ -2001,6 +2035,15 @@ body.light-mode .profile-image-overlay i {
     color: #0284c7;
 }
 
+body.light-mode .project-detail-item {
+    background: rgba(2, 132, 199, 0.04);
+    border-color: rgba(2, 132, 199, 0.06);
+}
+
+body.light-mode .project-detail-item span {
+    color: #475569;
+}
+
 body.light-mode .project-link.github-link {
     color: #334155;
     border-color: #dbe4ee;
@@ -2324,6 +2367,30 @@ body.light-mode .success-message p {
     .experience-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE - PROJECT DETAILS
+========================================================= */
+@media (max-width: 520px) {
+    .project-details {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+    
+    .project-detail-item {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+    
+    .project-detail-item i {
+        font-size: 12px;
+    }
+    
+    .project-description {
+        font-size: 13px;
+        min-height: auto;
     }
 }
 
