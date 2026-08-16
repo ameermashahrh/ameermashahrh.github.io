@@ -2819,3 +2819,40 @@ body.light-mode .success-message p {
     .stats-grid { grid-template-columns: 1fr; }
     .code-content { font-size: 9px; }
 }
+/* =========================================================
+   LOGO IMAGE
+========================================================= */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    max-height: 50px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   RESPONSIVE - LOGO
+========================================================= */
+@media (max-width: 750px) {
+    .logo-image {
+        height: 40px;
+        max-height: 40px;
+    }
+}
+
+@media (max-width: 520px) {
+    .logo-image {
+        height: 35px;
+        max-height: 35px;
+    }
+}
