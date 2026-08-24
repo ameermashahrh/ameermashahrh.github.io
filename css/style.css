@@ -2856,3 +2856,22 @@ body.light-mode .success-message p {
         max-height: 35px;
     }
 }
+/* =========================================================
+   CERTIFICATE DESCRIPTION
+========================================================= */
+.certificate-description {
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 6px 0 12px 0;
+    padding: 8px 12px;
+    background: rgba(56, 189, 248, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid #38bdf8;
+}
+
+body.light-mode .certificate-description {
+    color: #475569;
+    background: rgba(2, 132, 199, 0.05);
+    border-left-color: #0284c7;
+}
