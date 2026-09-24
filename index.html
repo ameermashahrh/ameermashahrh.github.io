@@ -20,7 +20,18 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- PWA Icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ameer Portfolio">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#38bdf8">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -33,52 +44,35 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- PWA Manifest -->
-<link rel="manifest" href="/manifest.json">
-
-<!-- PWA Icons -->
-<link rel="apple-touch-icon" href="images/logo.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Ameer Portfolio">
-
-<!-- Theme Color -->
-<meta name="theme-color" content="#38bdf8">
 </head>
 <body>
 
+    <!-- CUSTOM CURSOR -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-follower" id="customCursorFollower"></div>
+
+    <!-- MORPHING BLOB BACKGROUND -->
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- CONFETTI CANVAS -->
+    <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
     <!-- PARTICLES BACKGROUND -->
     <div class="particles-container" id="particlesContainer">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
     </div>
 
     <!-- READING PROGRESS BAR -->
@@ -97,9 +91,9 @@
     <!-- NAVBAR -->
     <header class="navbar">
         <div class="container nav-container">
-         <a href="#home" class="logo">
-    <img src="images/logo.png" alt="Ameer Tech Logo" class="logo-image">
-</a>
+            <a href="#home" class="logo">
+                AMEER<span>.</span>
+            </a>
 
             <nav class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link active">Home</a>
@@ -125,79 +119,78 @@
 
     <!-- MAIN CONTENT -->
     <main>
-     <!-- HERO SECTION -->
-<section id="home" class="hero gradient-bg">
-    <div class="container hero-container">
-        <div class="hero-content">
-            <p class="hero-greeting">Hello, I'm</p>
-            <h1>Ameer <span>Mashahreh</span></h1>
-            <h2 class="typing-text">Computer Engineering Student</h2>
-            <p class="hero-description">
-                I am a Computer Engineering student passionate about software development, artificial intelligence, cybersecurity, and building practical technology solutions.
-            </p>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero gradient-bg">
+            <div class="container hero-container">
+                <div class="hero-content" data-parallax="0.3">
+                    <p class="hero-greeting">Hello, I'm</p>
+                    <h1>Ameer <span>Mashahreh</span></h1>
+                    <h2 class="typing-text">Computer Engineering Student</h2>
+                    <p class="hero-description">
+                        I am a Computer Engineering student passionate about software development, artificial intelligence, cybersecurity, and building practical technology solutions.
+                    </p>
 
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-3d btn-3d-primary">
-                    <i class="fas fa-code"></i> View My Projects
-                </a>
-                <a href="#contact" class="btn btn-3d btn-3d-secondary">
-                    <i class="fas fa-envelope"></i> Contact Me
-                </a>
-                <a href="https://wa.me/972522299322?text=Hello%20Ameer%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20connect%21" 
-                   target="_blank" 
-                   class="btn btn-3d btn-3d-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="documents/Ameer_Mashahreh_CV.pdf" 
-                   download 
-                   class="btn btn-3d btn-3d-cv">
-                    <i class="fas fa-file-pdf"></i> Download CV
-                </a>
-            </div>
-
-            <div class="social-links">
-                <a href="https://github.com/ameermashahrh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/ameer-mashahreh-881896398" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:ameermashahreh3@gmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://wa.me/972522299322" target="_blank" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- CODE WINDOW - الجانب الأيمن -->
-        <div class="hero-visual">
-            <div class="code-window" data-aos="fade-left">
-                <div class="code-header">
-                    <div class="window-buttons">
-                        <span></span><span></span><span></span>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-3d btn-3d-primary">
+                            <i class="fas fa-code"></i> View My Projects
+                        </a>
+                        <a href="#contact" class="btn btn-3d btn-3d-secondary">
+                            <i class="fas fa-envelope"></i> Contact Me
+                        </a>
+                        <a href="https://wa.me/972522299322?text=Hello%20Ameer%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20connect%21" 
+                           target="_blank" 
+                           class="btn btn-3d btn-3d-whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="documents/Ameer_Mashahreh_CV.pdf" 
+                           download 
+                           class="btn btn-3d btn-3d-cv">
+                            <i class="fas fa-file-pdf"></i> Download CV
+                        </a>
                     </div>
-                    <div class="code-title">developer.js</div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/ameermashahrh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ameer-mashahreh-881896398" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:ameermashahreh3@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/972522299322" target="_blank" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="code-content">
-                    <p><span class="purple">const</span> developer = <span class="yellow">{</span></p>
-                    <p class="indent">name: <span class="green">"Ameer Mashahreh"</span>,</p>
-                    <p class="indent">field: <span class="green">"Computer Engineering"</span>,</p>
-                    <p class="indent">university: <span class="green">"Al-Quds University"</span>,</p>
-                    <p class="indent">interests: <span class="yellow">[</span></p>
-                    <p class="indent-2"><span class="green">"Software Development"</span>,</p>
-                    <p class="indent-2"><span class="green">"Artificial Intelligence"</span>,</p>
-                    <p class="indent-2"><span class="green">"Cybersecurity"</span></p>
-                    <p class="indent"><span class="yellow">]</span></p>
-                    <p><span class="yellow">}</span>;<span class="cursor"></span></p>
-                    <br>
-                    <p><span class="purple">console</span>.<span class="blue">log</span>(<span class="green">"Building the future..."</span>);</p>
+
+                <div class="hero-visual" data-parallax="-0.2">
+                    <div class="code-window" data-aos="fade-left">
+                        <div class="code-header">
+                            <div class="window-buttons">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="code-title">developer.js</div>
+                        </div>
+                        <div class="code-content">
+                            <p><span class="purple">const</span> developer = <span class="yellow">{</span></p>
+                            <p class="indent">name: <span class="green">"Ameer Mashahreh"</span>,</p>
+                            <p class="indent">field: <span class="green">"Computer Engineering"</span>,</p>
+                            <p class="indent">university: <span class="green">"Al-Quds University"</span>,</p>
+                            <p class="indent">interests: <span class="yellow">[</span></p>
+                            <p class="indent-2"><span class="green">"Software Development"</span>,</p>
+                            <p class="indent-2"><span class="green">"Artificial Intelligence"</span>,</p>
+                            <p class="indent-2"><span class="green">"Cybersecurity"</span></p>
+                            <p class="indent"><span class="yellow">]</span></p>
+                            <p><span class="yellow">}</span>;<span class="cursor"></span></p>
+                            <br>
+                            <p><span class="purple">console</span>.<span class="blue">log</span>(<span class="green">"Building the future..."</span>);</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- ABOUT SECTION -->
         <section id="about" class="section about-section">
@@ -373,144 +366,144 @@
             </div>
         </section>
 
-<!-- PROJECTS SECTION -->
-<section id="projects" class="section projects-section">
-    <div class="container">
-        <div class="section-heading" data-aos="fade-up">
-            <span class="section-label">MY WORK</span>
-            <h2>Featured <span>Projects</span></h2>
-            <p>Transforming ideas into innovative solutions with Python & Streamlit</p>
-        </div>
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="section-label">MY WORK</span>
+                    <h2>Featured <span>Projects</span></h2>
+                    <p>Transforming ideas into innovative solutions with Python & Streamlit</p>
+                </div>
 
-        <div class="projects-grid">
-            <!-- Project 1: MedicalVault -->
-            <article class="project-card glass-card" data-aos="flip-up" data-aos-delay="100">
-                <div class="project-number">01</div>
-                <div class="project-icon"><i class="fas fa-shield-halved"></i></div>
-                <h3>MedicalVault</h3>
-                <p class="project-description">
-                    A Python-based application designed to enhance the security and privacy of electronic medical records with robust user authentication and secure data management.
-                </p>
-                <div class="project-details">
-                    <div class="project-detail-item">
-                        <i class="fas fa-lock"></i>
-                        <span>Secure Auth</span>
-                    </div>
-                    <div class="project-detail-item">
-                        <i class="fas fa-database"></i>
-                        <span>SQLite Database</span>
-                    </div>
-                    <div class="project-detail-item">
-                        <i class="fas fa-shield-halved"></i>
-                        <span>Data Privacy</span>
-                    </div>
-                    <div class="project-detail-item">
-                        <i class="fas fa-code"></i>
-                        <span>Python</span>
-                    </div>
-                </div>
-                <div class="project-tags">
-                    <span>Python</span><span>SQLite</span><span>Cybersecurity</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/ameermashahrh/MedicalVault" target="_blank" rel="noopener noreferrer" class="project-link github-link">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                    <a href="https://medicalvaul-m3wqmcs4ww2wqhntsasd4l.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
-                        <i class="fas fa-play"></i> Live Demo
-                    </a>
-                    <a href="https://www.linkedin.com/posts/ameer-mashahreh-881896398_zytekengineers-healthtech-cybersecurity-activity-7480848284899594240-KPzw" target="_blank" rel="noopener noreferrer" class="project-link linkedin-link">
-                        <i class="fab fa-linkedin-in"></i> LinkedIn
-                    </a>
-                </div>
-            </article>
+                <div class="projects-grid">
+                    <!-- Project 1: MedicalVault -->
+                    <article class="project-card glass-card" data-aos="flip-up" data-aos-delay="100">
+                        <div class="project-number">01</div>
+                        <div class="project-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h3>MedicalVault</h3>
+                        <p class="project-description">
+                            A Python-based application designed to enhance the security and privacy of electronic medical records with robust user authentication and secure data management.
+                        </p>
+                        <div class="project-details">
+                            <div class="project-detail-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Secure Auth</span>
+                            </div>
+                            <div class="project-detail-item">
+                                <i class="fas fa-database"></i>
+                                <span>SQLite Database</span>
+                            </div>
+                            <div class="project-detail-item">
+                                <i class="fas fa-shield-halved"></i>
+                                <span>Data Privacy</span>
+                            </div>
+                            <div class="project-detail-item">
+                                <i class="fas fa-code"></i>
+                                <span>Python</span>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span>Python</span><span>SQLite</span><span>Cybersecurity</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ameermashahrh/MedicalVault" target="_blank" rel="noopener noreferrer" class="project-link github-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://medicalvaul-m3wqmcs4ww2wqhntsasd4l.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
+                                <i class="fas fa-play"></i> Live Demo
+                            </a>
+                            <a href="https://www.linkedin.com/posts/ameer-mashahreh-881896398_zytekengineers-healthtech-cybersecurity-activity-7480848284899594240-KPzw" target="_blank" rel="noopener noreferrer" class="project-link linkedin-link">
+                                <i class="fab fa-linkedin-in"></i> LinkedIn
+                            </a>
+                        </div>
+                    </article>
 
-            <!-- Project 2: QIEM Network C2 -->
-            <article class="project-card glass-card" data-aos="flip-up" data-aos-delay="200">
-                <div class="project-number">02</div>
-                <div class="project-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>QIEM Network C2</h3>
-                <p class="project-description">
-                    Quantum Intelligent Emergency Mesh project focused on resilient emergency networking and intelligent network systems for crisis management.
-                </p>
-                <div class="project-details">
-                    <div class="project-detail-item">
-                        <i class="fas fa-satellite"></i>
-                        <span>Mesh Network</span>
-                    </div>
-                    <div class="project-detail-item">
-                        <i class="fas fa-command"></i>
-                        <span>C2 System</span>
-                    </div>
-                    <div class="project-detail-item">
-                        <i class="fas fa-robot"></i>
-                        <span>AI Analytics</span>
-                    </div>
-                    <div class="project-detail-item">
-                        <i class="fas fa-bolt"></i>
-                        <span>Smart Routing</span>
-                    </div>
-                </div>
-                <div class="project-tags">
-                    <span>Python</span><span>Networking</span><span>AI</span><span>IoT</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/ameermashahrh/qiem-network-c2" target="_blank" rel="noopener noreferrer" class="project-link github-link">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                    <a href="https://qiem-network-c2-a7gqx8mbk46r2u6j2wkno7.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
-                        <i class="fas fa-play"></i> Live Demo
-                    </a>
-                </div>
-            </article>
+                    <!-- Project 2: QIEM Network C2 -->
+                    <article class="project-card glass-card" data-aos="flip-up" data-aos-delay="200">
+                        <div class="project-number">02</div>
+                        <div class="project-icon"><i class="fas fa-network-wired"></i></div>
+                        <h3>QIEM Network C2</h3>
+                        <p class="project-description">
+                            Quantum Intelligent Emergency Mesh project focused on resilient emergency networking and intelligent network systems for crisis management.
+                        </p>
+                        <div class="project-details">
+                            <div class="project-detail-item">
+                                <i class="fas fa-satellite"></i>
+                                <span>Mesh Network</span>
+                            </div>
+                            <div class="project-detail-item">
+                                <i class="fas fa-command"></i>
+                                <span>C2 System</span>
+                            </div>
+                            <div class="project-detail-item">
+                                <i class="fas fa-robot"></i>
+                                <span>AI Analytics</span>
+                            </div>
+                            <div class="project-detail-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Smart Routing</span>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span>Python</span><span>Networking</span><span>AI</span><span>IoT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ameermashahrh/qiem-network-c2" target="_blank" rel="noopener noreferrer" class="project-link github-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://qiem-network-c2-a7gqx8mbk46r2u6j2wkno7.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link demo-link">
+                                <i class="fas fa-play"></i> Live Demo
+                            </a>
+                        </div>
+                    </article>
 
-            <!-- Project 3: NEXUS Global Matrix OS (بدون Live Demo) -->
-            <article class="project-card glass-card" data-aos="flip-up" data-aos-delay="300">
-                <div class="project-number">03</div>
-                <div class="project-icon"><i class="fas fa-building"></i></div>
-                <h3>NEXUS Global Matrix OS</h3>
-                <p class="project-description">
-                    Smart Stadium Operations Center & Digital Twin with real-time attendance monitoring, 3D structural mapping, and strategic command center features.
-                </p>
-                <div class="project-details">
-                    <div class="project-detail-item">
-                        <i class="fas fa-cube"></i>
-                        <span>Digital Twin</span>
-                    </div>
-                    <div class="project-detail-item">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Live Analytics</span>
-                    </div>
-                    <div class="project-detail-item">
-                        <i class="fas fa-map"></i>
-                        <span>3D Mapping</span>
-                    </div>
-                    <div class="project-detail-item">
-                        <i class="fas fa-brain"></i>
-                        <span>AI Sentinel</span>
-                    </div>
+                    <!-- Project 3: NEXUS Global Matrix OS (بدون Live Demo) -->
+                    <article class="project-card glass-card" data-aos="flip-up" data-aos-delay="300">
+                        <div class="project-number">03</div>
+                        <div class="project-icon"><i class="fas fa-building"></i></div>
+                        <h3>NEXUS Global Matrix OS</h3>
+                        <p class="project-description">
+                            Smart Stadium Operations Center & Digital Twin with real-time attendance monitoring, 3D structural mapping, and strategic command center features.
+                        </p>
+                        <div class="project-details">
+                            <div class="project-detail-item">
+                                <i class="fas fa-cube"></i>
+                                <span>Digital Twin</span>
+                            </div>
+                            <div class="project-detail-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Live Analytics</span>
+                            </div>
+                            <div class="project-detail-item">
+                                <i class="fas fa-map"></i>
+                                <span>3D Mapping</span>
+                            </div>
+                            <div class="project-detail-item">
+                                <i class="fas fa-brain"></i>
+                                <span>AI Sentinel</span>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span>Python</span><span>Streamlit</span><span>Plotly</span><span>PyDeck</span><span>Digital Twin</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ameermashahrh/smart-stadium" target="_blank" rel="noopener noreferrer" class="project-link github-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://www.linkedin.com/posts/ameer-mashahreh-881896398_python-streamlit-datavisualization-activity-7475965595356872704-abCT" target="_blank" rel="noopener noreferrer" class="project-link linkedin-link">
+                                <i class="fab fa-linkedin-in"></i> LinkedIn
+                            </a>
+                        </div>
+                    </article>
                 </div>
-                <div class="project-tags">
-                    <span>Python</span><span>Streamlit</span><span>Plotly</span><span>PyDeck</span><span>Digital Twin</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/ameermashahrh/smart-stadium" target="_blank" rel="noopener noreferrer" class="project-link github-link">
-                        <i class="fab fa-github"></i> Code
-                    </a>
-                    <a href="https://www.linkedin.com/posts/ameer-mashahreh-881896398_python-streamlit-datavisualization-activity-7475965595356872704-abCT" target="_blank" rel="noopener noreferrer" class="project-link linkedin-link">
-                        <i class="fab fa-linkedin-in"></i> LinkedIn
-                    </a>
-                </div>
-            </article>
-        </div>
 
-        <div class="projects-more">
-            <a href="https://github.com/ameermashahrh" target="_blank" rel="noopener noreferrer" class="btn btn-3d btn-3d-secondary">
-                <i class="fab fa-github"></i> View More on GitHub
-            </a>
-        </div>
-    </div>
-</section>>
+                <div class="projects-more">
+                    <a href="https://github.com/ameermashahrh" target="_blank" rel="noopener noreferrer" class="btn btn-3d btn-3d-secondary">
+                        <i class="fab fa-github"></i> View More on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <!-- EXPERIENCE SECTION -->
         <section id="experience" class="section experience-section">
@@ -542,7 +535,6 @@
                                 <li><i class="fas fa-check-circle"></i> Represented the company at university events</li>
                                 <li><i class="fas fa-check-circle"></i> Built effective communication channels between students and the company</li>
                             </ul>
-                            <!-- Certificate Image as Proof -->
                             <div class="experience-certificate">
                                 <a href="images/certificate4.jpg.jpg" target="_blank" class="certificate-proof">
                                     <img src="images/certificate4.jpg.jpg" alt="University Ambassador Certificate" class="certificate-thumbnail">
@@ -556,204 +548,179 @@
             </div>
         </section>
 
-    <!-- CERTIFICATES SECTION -->
-<section id="certificates" class="section certificates-section">
-    <div class="container">
-        <div class="section-heading" data-aos="fade-up">
-            <span class="section-label">MY CERTIFICATES</span>
-            <h2>Certificates & <span>Awards</span></h2>
-            <p>Professional certifications and academic achievements</p>
-        </div>
+        <!-- CERTIFICATES SECTION -->
+        <section id="certificates" class="section certificates-section">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="section-label">MY CERTIFICATES</span>
+                    <h2>Certificates & <span>Awards</span></h2>
+                    <p>Professional certifications and academic achievements</p>
+                </div>
 
-        <div class="certificates-grid">
-            <!-- Certificate 1 - BIN X Tech -->
-            <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="certificate-image">
-                    <img 
-                        src="images/certificate1.jpg.png" 
-                        alt="Certificate 1" 
-                        loading="lazy"
-                        onerror="this.style.display='none'"
-                    >
-                    <span class="certificate-badge" style="background: linear-gradient(135deg, #2563eb, #3b82f6);">
-                        <i class="fas fa-award"></i> Certificate
-                    </span>
-                    <div class="certificate-overlay">
-                        <a href="images/certificate1.jpg.png" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
-                            <i class="fas fa-eye"></i> View
-                        </a>
-                        <a href="images/certificate1.jpg.png" download class="btn btn-3d btn-3d-secondary btn-sm">
-                            <i class="fas fa-download"></i> Download
-                        </a>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>AI Foundations & MVP Bootcamp</h3>
-                    <p>Issued by: <strong style="color: #3b82f6;">BIN X Tech</strong></p>
-                    <p class="certificate-description">A 10-hour intensive training program covering AI fundamentals, machine learning concepts, and MVP development strategies.</p>
-                    <span class="certificate-date"><i class="far fa-calendar-alt"></i> May 24, 2026</span>
-                    <span class="certificate-credential">10-hour intensive training</span>
-                </div>
-            </div>
-
-            <!-- Certificate 2 - SEED -->
-            <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="certificate-image">
-                    <img 
-                        src="images/certificate2.jpg.jpg" 
-                        alt="Certificate 2" 
-                        loading="lazy"
-                        onerror="this.style.display='none'"
-                    >
-                    <span class="certificate-badge" style="background: linear-gradient(135deg, #10b981, #059669);">
-                        <i class="fas fa-award"></i> Certificate
-                    </span>
-                    <div class="certificate-overlay">
-                        <a href="images/certificate2.jpg.jpg" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
-                            <i class="fas fa-eye"></i> View
-                        </a>
-                        <a href="images/certificate2.jpg.jpg" download class="btn btn-3d btn-3d-secondary btn-sm">
-                            <i class="fas fa-download"></i> Download
-                        </a>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>Cybersecurity & Bug Bounty Bootcamp</h3>
-                    <p>Issued by: <strong style="color: #10b981;">SEED</strong></p>
-                    <p class="certificate-description">Advanced cybersecurity training covering vulnerability assessment, penetration testing, and bug bounty hunting techniques.</p>
-                    <span class="certificate-date"><i class="far fa-calendar-alt"></i> October 16, 2025</span>
-                    <span class="certificate-credential">Advanced Cybersecurity</span>
-                </div>
-            </div>
-
-            <!-- Certificate 3 - Zytek Engineer -->
-            <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="certificate-image">
-                    <img 
-                        src="images/certificate3.jpg.jpeg" 
-                        alt="Certificate 3" 
-                        loading="lazy"
-                        onerror="this.style.display='none'"
-                    >
-                    <span class="certificate-badge" style="background: linear-gradient(135deg, #facc15, #eab308);">
-                        <i class="fas fa-award"></i> Certificate
-                    </span>
-                    <div class="certificate-overlay">
-                        <a href="images/certificate3.jpg.jpeg" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
-                            <i class="fas fa-eye"></i> View
-                        </a>
-                        <a href="images/certificate3.jpg.jpeg" download class="btn btn-3d btn-3d-secondary btn-sm">
-                            <i class="fas fa-download"></i> Download
-                        </a>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>Python Projects Development</h3>
-                    <p>Issued by: <strong style="color: #facc15;">Zytek Engineer</strong></p>
-                    <p class="certificate-description">Focused on Object-Oriented Programming (OOP), file handling, and version control using Git & GitHub.</p>
-                    <span class="certificate-date"><i class="far fa-calendar-alt"></i> July 12, 2026</span>
-                    <span class="certificate-credential">Focus: OOP, Git & GitHub</span>
-                </div>
-            </div>
-
-            <!-- Certificate 4 - UI/UX Design from Bin X -->
-            <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="400">
-                <div class="certificate-image">
-                    <img 
-                        src="images/certificate5.jpg.jpeg" 
-                        alt="Certificate 4" 
-                        loading="lazy"
-                        onerror="this.style.display='none'"
-                    >
-                    <span class="certificate-badge" style="background: linear-gradient(135deg, #2563eb, #3b82f6);">
-                        <i class="fas fa-award"></i> Certificate
-                    </span>
-                    <div class="certificate-overlay">
-                        <a href="images/certificate5.jpg.jpeg" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
-                            <i class="fas fa-eye"></i> View
-                        </a>
-                        <a href="images/certificate5.jpg.jpeg" download class="btn btn-3d btn-3d-secondary btn-sm">
-                            <i class="fas fa-download"></i> Download
-                        </a>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>UI/UX Design Session</h3>
-                    <p>Issued by: <strong style="color: #3b82f6;">Bin X</strong></p>
-                    <p class="certificate-description">An interactive session exploring UI/UX design principles, user-centered thinking, and creating intuitive digital experiences.</p>
-                    <span class="certificate-date"><i class="far fa-calendar-alt"></i> July 20, 2026</span>
-                    <span class="certificate-credential">Certificate of Participation</span>
-                </div>
-            </div>
-
-            <!-- Certificate 5 - ZyTek Engineers (Ethical Hacking) -->
-            <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="500">
-                <div class="certificate-image">
-                    <img 
-                        src="images/certificate6.jpg.jpeg" 
-                        alt="Certificate 5" 
-                        loading="lazy"
-                        onerror="this.style.display='none'"
-                    >
-                    <span class="certificate-badge" style="background: linear-gradient(135deg, #facc15, #eab308);">
-                        <i class="fas fa-award"></i> Certificate
-                    </span>
-                    <div class="certificate-overlay">
-                        <a href="images/certificate6.jpg.jpeg" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
-                            <i class="fas fa-eye"></i> View
-                        </a>
-                        <a href="images/certificate6.jpg.jpeg" download class="btn btn-3d btn-3d-secondary btn-sm">
-                            <i class="fas fa-download"></i> Download
-                        </a>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>Ethical Hacking & Kali Linux</h3>
-                    <p>Issued by: <strong style="color: #facc15;">ZyTek Engineers</strong></p>
-                    <p class="certificate-description">Comprehensive course covering ethical hacking concepts, penetration testing, and Kali Linux tools in a legal and responsible manner.</p>
-                    <span class="certificate-date"><i class="far fa-calendar-alt"></i> August 24, 2026</span>
-                    <span class="certificate-credential">Certificate of Completion</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- EDUCATION SECTION -->
-<section id="education" class="section">
-    <div class="container">
-        <div class="section-heading" data-aos="fade-up">
-            <span class="section-label">MY ACADEMIC JOURNEY</span>
-            <h2><span>Education</span></h2>
-        </div>
-
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-right">
-                <div class="timeline-dot">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="timeline-content glass-card">
-                    <span class="timeline-date">
-                        <i class="far fa-calendar-alt"></i> 2025 – 2029
-                    </span>
-                    <h3>Bachelor of Computer Engineering</h3>
-                    <h4>Al-Quds University – Abu Dis</h4>
-                    <p>Studying computer engineering with an interest in software development, artificial intelligence, cybersecurity, networking, and modern computing systems.</p>
-                    
-                    <div class="academic-progress">
-                        <div class="progress-info">
-                            <span>Academic Progress</span>
-                            <span>15%</span>
+                <div class="certificates-grid">
+                    <!-- Certificate 1 - BIN X Tech -->
+                    <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="certificate-image">
+                            <img src="images/certificate1.jpg.png" alt="Certificate 1" loading="lazy" onerror="this.style.display='none'">
+                            <span class="certificate-badge" style="background: linear-gradient(135deg, #2563eb, #3b82f6);">
+                                <i class="fas fa-award"></i> Certificate
+                            </span>
+                            <div class="certificate-overlay">
+                                <a href="images/certificate1.jpg.png" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="images/certificate1.jpg.png" download class="btn btn-3d btn-3d-secondary btn-sm">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
                         </div>
-                        <div class="progress-bar academic-bar">
-                            <div class="progress-fill academic-fill" data-width="15"></div>
+                        <div class="certificate-info">
+                            <h3>AI Foundations & MVP Bootcamp</h3>
+                            <p>Issued by: <strong style="color: #3b82f6;">BIN X Tech</strong></p>
+                            <p class="certificate-description">A 10-hour intensive training program covering AI fundamentals, machine learning concepts, and MVP development strategies.</p>
+                            <span class="certificate-date"><i class="far fa-calendar-alt"></i> May 24, 2026</span>
+                            <span class="certificate-credential">10-hour intensive training</span>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 2 - SEED -->
+                    <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="certificate-image">
+                            <img src="images/certificate2.jpg.jpg" alt="Certificate 2" loading="lazy" onerror="this.style.display='none'">
+                            <span class="certificate-badge" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                <i class="fas fa-award"></i> Certificate
+                            </span>
+                            <div class="certificate-overlay">
+                                <a href="images/certificate2.jpg.jpg" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="images/certificate2.jpg.jpg" download class="btn btn-3d btn-3d-secondary btn-sm">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Cybersecurity & Bug Bounty Bootcamp</h3>
+                            <p>Issued by: <strong style="color: #10b981;">SEED</strong></p>
+                            <p class="certificate-description">Advanced cybersecurity training covering vulnerability assessment, penetration testing, and bug bounty hunting techniques.</p>
+                            <span class="certificate-date"><i class="far fa-calendar-alt"></i> October 16, 2025</span>
+                            <span class="certificate-credential">Advanced Cybersecurity</span>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 3 - Zytek Engineer -->
+                    <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="certificate-image">
+                            <img src="images/certificate3.jpg.jpeg" alt="Certificate 3" loading="lazy" onerror="this.style.display='none'">
+                            <span class="certificate-badge" style="background: linear-gradient(135deg, #facc15, #eab308);">
+                                <i class="fas fa-award"></i> Certificate
+                            </span>
+                            <div class="certificate-overlay">
+                                <a href="images/certificate3.jpg.jpeg" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="images/certificate3.jpg.jpeg" download class="btn btn-3d btn-3d-secondary btn-sm">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Python Projects Development</h3>
+                            <p>Issued by: <strong style="color: #facc15;">Zytek Engineer</strong></p>
+                            <p class="certificate-description">Focused on Object-Oriented Programming (OOP), file handling, and version control using Git & GitHub.</p>
+                            <span class="certificate-date"><i class="far fa-calendar-alt"></i> July 12, 2026</span>
+                            <span class="certificate-credential">Focus: OOP, Git & GitHub</span>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 4 - UI/UX Design from Bin X -->
+                    <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="certificate-image">
+                            <img src="images/certificate5.jpg.jpeg" alt="Certificate 4" loading="lazy" onerror="this.style.display='none'">
+                            <span class="certificate-badge" style="background: linear-gradient(135deg, #2563eb, #3b82f6);">
+                                <i class="fas fa-award"></i> Certificate
+                            </span>
+                            <div class="certificate-overlay">
+                                <a href="images/certificate5.jpg.jpeg" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="images/certificate5.jpg.jpeg" download class="btn btn-3d btn-3d-secondary btn-sm">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>UI/UX Design Session</h3>
+                            <p>Issued by: <strong style="color: #3b82f6;">Bin X</strong></p>
+                            <p class="certificate-description">An interactive session exploring UI/UX design principles, user-centered thinking, and creating intuitive digital experiences.</p>
+                            <span class="certificate-date"><i class="far fa-calendar-alt"></i> July 20, 2026</span>
+                            <span class="certificate-credential">Certificate of Participation</span>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 5 - ZyTek Engineers (Ethical Hacking) -->
+                    <div class="certificate-card glass-card" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="certificate-image">
+                            <img src="images/certificate6.jpg.jpeg" alt="Certificate 5" loading="lazy" onerror="this.style.display='none'">
+                            <span class="certificate-badge" style="background: linear-gradient(135deg, #facc15, #eab308);">
+                                <i class="fas fa-award"></i> Certificate
+                            </span>
+                            <div class="certificate-overlay">
+                                <a href="images/certificate6.jpg.jpeg" target="_blank" class="btn btn-3d btn-3d-primary btn-sm">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="images/certificate6.jpg.jpeg" download class="btn btn-3d btn-3d-secondary btn-sm">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Ethical Hacking & Kali Linux</h3>
+                            <p>Issued by: <strong style="color: #facc15;">ZyTek Engineers</strong></p>
+                            <p class="certificate-description">Comprehensive course covering ethical hacking concepts, penetration testing, and Kali Linux tools in a legal and responsible manner.</p>
+                            <span class="certificate-date"><i class="far fa-calendar-alt"></i> August 24, 2026</span>
+                            <span class="certificate-credential">Certificate of Completion</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="section">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="section-label">MY ACADEMIC JOURNEY</span>
+                    <h2><span>Education</span></h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date">
+                                <i class="far fa-calendar-alt"></i> 2025 – 2030
+                            </span>
+                            <h3>Bachelor of Computer Engineering</h3>
+                            <h4>Al-Quds University – Abu Dis</h4>
+                            <p>Studying computer engineering with an interest in software development, artificial intelligence, cybersecurity, networking, and modern computing systems.</p>
+                            
+                            <div class="academic-progress">
+                                <div class="progress-info">
+                                    <span>Academic Progress</span>
+                                    <span>15%</span>
+                                </div>
+                                <div class="progress-bar academic-bar">
+                                    <div class="progress-fill academic-fill" data-width="15"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- CONTACT SECTION -->
         <section id="contact" class="section contact-section">
@@ -777,9 +744,7 @@
                                     <strong>ameermashahreh3@gmail.com</strong>
                                 </div>
                             </a>
-                            <a href="https://wa.me/972522299322?text=Hello%20Ameer%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20connect%21" 
-                               target="_blank" 
-                               class="contact-item">
+                            <a href="https://wa.me/972522299322?text=Hello%20Ameer%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20connect%21" target="_blank" class="contact-item">
                                 <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
                                 <div>
                                     <span>WhatsApp</span>
@@ -800,9 +765,7 @@
                                     <strong>ameermashahrh</strong>
                                 </div>
                             </a>
-                            <a href="documents/Ameer_Mashahreh_CV.pdf" 
-                               download 
-                               class="contact-item">
+                            <a href="documents/Ameer_Mashahreh_CV.pdf" download class="contact-item">
                                 <div class="contact-icon"><i class="fas fa-file-pdf"></i></div>
                                 <div>
                                     <span>CV</span>
@@ -812,7 +775,6 @@
                         </div>
                     </div>
 
-                    <!-- Contact Form -->
                     <form class="contact-form glass-card" id="contactForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
