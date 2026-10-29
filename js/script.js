@@ -258,32 +258,7 @@ document.querySelectorAll(".nav-link").forEach(link => {
     });
 });
 
-// =========================================
-// DARK / LIGHT MODE TOGGLE
-// =========================================
-const themeToggle = document.getElementById("themeToggle");
-
-if (themeToggle) {
-    themeToggle.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.body.classList.toggle("light-mode");
-        const icon = this.querySelector("i");
-        if (document.body.classList.contains("light-mode")) {
-            icon.className = "fas fa-sun";
-            localStorage.setItem("theme", "light");
-        } else {
-            icon.className = "fas fa-moon";
-            localStorage.setItem("theme", "dark");
-        }
-    });
-}
-
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-    document.body.classList.add("light-mode");
-    const icon = themeToggle?.querySelector("i");
-    if (icon) icon.className = "fas fa-sun";
-}
+// تم إزالة كود زر الوضع الفاتح بالكامل
 
 // =========================================
 // ACTIVE NAVIGATION SCROLL SPY

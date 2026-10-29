@@ -1,5 +1,6 @@
 /* =========================================================
    AMEER MASHAHREH PORTFOLIO - MAIN STYLE SHEET
+   (Dark Mode Only)
 ========================================================= */
 
 * {
@@ -19,7 +20,6 @@ body {
     color: #e2e8f0;
     line-height: 1.6;
     overflow-x: hidden;
-    transition: background 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -383,7 +383,7 @@ img {
 
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 
-.theme-toggle, .menu-toggle {
+.menu-toggle {
     width: 40px;
     height: 40px;
     border-radius: 10px;
@@ -397,7 +397,7 @@ img {
     font-size: 18px;
 }
 
-.theme-toggle:hover, .menu-toggle:hover {
+.menu-toggle:hover {
     color: #38bdf8;
     border-color: #38bdf8;
     transform: translateY(-2px);
@@ -1816,183 +1816,6 @@ img {
 .lightbox-close:hover { color: #38bdf8; }
 
 /* =========================================================
-   LIGHT MODE
-========================================================= */
-body.light-mode { background: #ffffff; color: #0f172a; }
-body.light-mode .loader { background: #f8fafc; }
-
-body.light-mode .navbar {
-    background: rgba(248, 250, 252, 0.92);
-    border-bottom-color: #e2e8f0;
-}
-
-body.light-mode .navbar.scrolled {
-    background: rgba(248, 250, 252, 0.98);
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-}
-
-body.light-mode .logo { color: #0f172a; }
-body.light-mode .logo:hover { color: #0284c7; }
-body.light-mode .nav-link { color: #475569; }
-body.light-mode .nav-link:hover, body.light-mode .nav-link.active { color: #0284c7; }
-
-body.light-mode .theme-toggle, body.light-mode .menu-toggle {
-    background: #ffffff;
-    border-color: #dbe4ee;
-    color: #334155;
-}
-
-body.light-mode .hero, body.light-mode .section { background: #f8fafc; }
-
-body.light-mode .gradient-bg {
-    background: linear-gradient(-45deg, #f8fafc, #eef4f8, #e2e8f0, #f8fafc);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
-}
-
-body.light-mode .about-section, body.light-mode .projects-section, body.light-mode .contact-section {
-    background: #eef4f8 !important;
-}
-
-body.light-mode .hero-content h1, body.light-mode .section-heading h2 { color: #0f172a; }
-body.light-mode .hero-content h2 { color: #1e293b; }
-body.light-mode .hero-description, body.light-mode .about-content, body.light-mode .section-heading p { color: #1e293b !important; }
-body.light-mode .about-content strong { color: #0f172a !important; }
-
-body.light-mode .about-info-item .info-label { color: #1e293b !important; font-weight: 700 !important; }
-body.light-mode .about-info-item .info-value { color: #0f172a !important; font-weight: 600 !important; }
-
-body.light-mode .code-window, body.light-mode .skill-card, body.light-mode .project-card,
-body.light-mode .timeline-content, body.light-mode .contact-form,
-body.light-mode .certificate-card, body.light-mode .experience-card {
-    background: #ffffff;
-    border-color: #dbe4ee;
-    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
-}
-
-body.light-mode .code-header { background: #f1f5f9; border-bottom-color: #dbe4ee; }
-body.light-mode .stat-card { background: #ffffff; border-color: #dbe4ee; }
-body.light-mode .stat-title { color: #334155; }
-
-body.light-mode .skill-card h3, body.light-mode .project-card h3,
-body.light-mode .timeline-content h3, body.light-mode .contact-info h3,
-body.light-mode .certificate-info h3 { color: #0f172a; }
-
-body.light-mode .skill-tags span, body.light-mode .project-tags span {
-    background: #f1f5f9;
-    border-color: #dbe4ee;
-    color: #475569;
-}
-
-body.light-mode .skill-icon, body.light-mode .project-icon, body.light-mode .contact-icon {
-    background: rgba(14, 165, 233, 0.08);
-}
-
-body.light-mode .contact-item { background: #ffffff; border-color: #dbe4ee; }
-body.light-mode .contact-item strong { color: #0f172a !important; }
-body.light-mode .contact-item span { color: #475569 !important; }
-
-body.light-mode .form-group input, body.light-mode .form-group textarea {
-    background: #ffffff;
-    border-color: #dbe4ee;
-    color: #0f172a;
-}
-
-body.light-mode .form-group label { color: #334155; }
-body.light-mode .footer { background: #f1f5f9; border-top-color: #dbe4ee; }
-body.light-mode .footer p { color: #64748b; }
-
-body.light-mode .profile-image-wrapper {
-    border-color: #0284c7;
-    box-shadow: 0 20px 50px rgba(14, 165, 233, 0.15);
-}
-
-body.light-mode .profile-image-wrapper::before {
-    background: conic-gradient(from 0deg, #0284c7, #eab308, #0284c7);
-    background-size: 300% 300%;
-}
-
-body.light-mode .profile-image-overlay {
-    background: linear-gradient(to top, rgba(248, 250, 252, 0.95), transparent);
-    color: #0f172a;
-}
-
-body.light-mode .profile-image-overlay i { color: #0284c7; }
-
-body.light-mode .glass-card {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    border-color: rgba(0, 0, 0, 0.05);
-}
-
-body.light-mode .certificate-description {
-    color: #475569;
-    background: rgba(2, 132, 199, 0.05);
-    border-left-color: #0284c7;
-}
-
-body.light-mode .project-detail-item {
-    background: rgba(2, 132, 199, 0.04);
-    border-color: rgba(2, 132, 199, 0.06);
-}
-
-body.light-mode .project-detail-item span { color: #475569; }
-
-body.light-mode .project-link.github-link {
-    color: #334155;
-    border-color: #dbe4ee;
-    background: rgba(0, 0, 0, 0.04);
-}
-
-body.light-mode .project-link.github-link:hover {
-    color: #0284c7;
-    border-color: #0284c7;
-    background: rgba(2, 132, 199, 0.08);
-}
-
-body.light-mode .experience-section { background: #f8fafc !important; }
-body.light-mode .experience-card { background: #ffffff; border-color: #dbe4ee; }
-
-body.light-mode .experience-company h3 { color: #0f172a; }
-body.light-mode .experience-card:hover .experience-company h3 { color: #0284c7; }
-body.light-mode .experience-role { color: #475569; }
-body.light-mode .experience-body p { color: #475569; }
-body.light-mode .experience-list li { color: #475569; }
-
-body.light-mode .certificate-proof {
-    color: #0284c7;
-    background: rgba(2, 132, 199, 0.05);
-    border-color: rgba(2, 132, 199, 0.1);
-}
-
-body.light-mode .timeline-item::before {
-    background: linear-gradient(to bottom, #0284c7, #eab308, #0284c7);
-    background-size: 100% 300%;
-}
-
-body.light-mode .timeline-dot {
-    background: linear-gradient(135deg, #0284c7, #0ea5e9);
-    box-shadow: 0 0 0 5px rgba(14, 165, 233, 0.15);
-}
-
-body.light-mode .timeline-content { background: #ffffff; border-color: #dbe4ee; }
-
-body.light-mode .progress-bar { background: #e2e8f0; }
-body.light-mode .skill-info { color: #334155; }
-
-body.light-mode .back-to-top { background: #0284c7; color: #ffffff; }
-body.light-mode .back-to-top:hover { background: #0369a1; }
-
-body.light-mode .success-message { background: rgba(56, 189, 248, 0.08); }
-body.light-mode .success-message h3 { color: #0f172a; }
-body.light-mode .success-message p { color: #475569; }
-
-body.light-mode .blob-container { opacity: 0.3; }
-body.light-mode .custom-cursor { background: #0284c7; mix-blend-mode: normal; }
-body.light-mode .custom-cursor-follower { border-color: rgba(2, 132, 199, 0.5); mix-blend-mode: normal; }
-body.light-mode .custom-cursor-follower.hover { border-color: #eab308; }
-
-/* =========================================================
    RESPONSIVE
 ========================================================= */
 @media (max-width: 1000px) {
@@ -2011,11 +1834,6 @@ body.light-mode .custom-cursor-follower.hover { border-color: #eab308; }
     }
 
     .nav-menu.active { display: flex; }
-
-    body.light-mode .nav-menu {
-        background: rgba(248, 250, 252, 0.98);
-        border-bottom-color: #dbe4ee;
-    }
 
     .menu-toggle { display: flex; }
     .hero-container { grid-template-columns: 1fr; gap: 50px; }
