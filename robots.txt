@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ameermashahrh.github.io/sitemap.xml
+Sitemap: https://ameermashahrh.vercel.app\/sitemap.xml
