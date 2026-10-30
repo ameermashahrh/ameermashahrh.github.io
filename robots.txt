@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ameermashahrh.github.io/sitemap.xml
