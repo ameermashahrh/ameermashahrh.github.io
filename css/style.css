@@ -12,6 +12,7 @@
 
 html {
     scroll-behavior: smooth;
+    color-scheme: dark;
 }
 
 body {
@@ -1142,7 +1143,8 @@ img {
 
 .experience-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: minmax(0, 560px);
+    justify-content: center;
     gap: 25px;
 }
 
@@ -1309,13 +1311,15 @@ img {
     overflow: hidden;
 }
 
-.certificates-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.06), transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(250, 204, 21, 0.06), transparent 50%);
-    pointer-events: none;
+.certificates-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
 .certificate-card {
@@ -1448,8 +1452,11 @@ img {
     transition: all 0.4s ease;
 }
 
+.certificate-overlay { pointer-events: none; }
 .certificate-card:hover .certificate-overlay { opacity: 1; }
-
+.certificate-card:hover .certificate-overlay .btn { pointer-events: auto; }
+.certificate-image::before { pointer-events: none; }
+.certificate-image img { cursor: zoom-in; }
 .certificate-overlay .btn {
     min-width: 130px;
     border-radius: 30px;
@@ -1845,13 +1852,11 @@ img {
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
     .projects-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
-    .certificates-grid { grid-template-columns: 1fr; }
-    .experience-grid { grid-template-columns: 1fr 1fr; }
+    .certificates-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-    .experience-grid { grid-template-columns: 1fr; }
-    .experience-header { flex-direction: column; align-items: flex-start; }
+    .certificates-grid { grid-template-columns: 1fr; }    .experience-header { flex-direction: column; align-items: flex-start; }
     .blob { filter: blur(60px); }
     .blob-1, .blob-2, .blob-3 { width: 250px; height: 250px; }
 }
@@ -1933,4 +1938,8 @@ img {
     .hero-content h1 { font-size: 34px; }
     .stats-grid { grid-template-columns: 1fr; }
     .code-content { font-size: 9px; }
+}
+.blob-container,
+.particles-container {
+    display: none;
 }

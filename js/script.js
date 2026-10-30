@@ -9,6 +9,17 @@ window.addEventListener("load", () => {
         }, 500);
     }
 });
+// =========================================
+// AOS INITIALIZATION
+// =========================================
+if (typeof AOS !== "undefined") {
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: 'ease-in-out'
+    });
+}
 
 // =========================================
 // READING PROGRESS BAR
@@ -258,7 +269,6 @@ document.querySelectorAll(".nav-link").forEach(link => {
     });
 });
 
-// تم إزالة كود زر الوضع الفاتح بالكامل
 
 // =========================================
 // ACTIVE NAVIGATION SCROLL SPY
@@ -423,9 +433,12 @@ document.addEventListener('keydown', (e) => {
 // EMAILJS - CONTACT FORM
 // =========================================
 (function() {
-    emailjs.init("3zRaobthulBt87hD0");
+    if (typeof emailjs !== "undefined") {
+        emailjs.init("3zRaobthulBt87hD0");
+    } else {
+        console.warn("EmailJS failed to load");
+    }
 })();
-
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
@@ -482,15 +495,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// =========================================
-// AOS INITIALIZATION
-// =========================================
-AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100,
-    easing: 'ease-in-out'
-});
 
 // =========================================
 // CONSOLE MESSAGE
