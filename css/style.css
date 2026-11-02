@@ -1143,7 +1143,7 @@ img {
 
 .experience-grid {
     display: grid;
-    grid-template-columns: minmax(0, 560px);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 440px));
     justify-content: center;
     gap: 25px;
 }
