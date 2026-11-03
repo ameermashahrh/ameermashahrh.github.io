@@ -404,30 +404,61 @@ if (backToTop) {
 }
 
 // =========================================
-// LIGHTBOX GALLERY
+// VIDEO LIGHTBOX (self-contained)
 // =========================================
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const closeLightbox = document.querySelector('.lightbox-close');
+(function () {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:100000;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;';
+    overlay.innerHTML =
+        '<span id="videoOverlayClose" style="position:absolute;top:15px;right:30px;color:#fff;font-size:42px;cursor:pointer;line-height:1;">&times;</span>' +
+        '<video id="videoOverlayPlayer" controls playsinline style="max-width:100%;max-height:85vh;background:#000;border-radius:10px;"></video>' +
+        '<p id="videoOverlayMsg" style="color:#f87171;font-size:14px;display:none;"></p>';
+    document.body.appendChild(overlay);
 
-document.querySelectorAll('.certificate-image img').forEach(img => {
-    img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('active');
+    const player = overlay.querySelector('#videoOverlayPlayer');
+    const msg = overlay.querySelector('#videoOverlayMsg');
+    const closeBtn = overlay.querySelector('#videoOverlayClose');
+
+    function openVideo(src) {
+        msg.style.display = 'none';
+        player.src = src;
+        overlay.style.display = 'flex';
+        player.play().catch(() => {});
+    }
+
+    function closeVideo() {
+        if (overlay.style.display === 'none') return;
+        player.pause();
+        player.removeAttribute('src');
+        player.load();
+        overlay.style.display = 'none';
+    }
+
+    player.addEventListener('error', () => {
+        const src = player.getAttribute('src');
+        if (!src) return;
+        msg.textContent = 'Video file not found: ' + src;
+        msg.style.display = 'block';
     });
-});
 
-if (closeLightbox) {
-    closeLightbox.addEventListener('click', () => lightbox.classList.remove('active'));
-}
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.video-preview');
+        if (trigger) {
+            openVideo(trigger.dataset.src || 'videos/bin-x-event.mp4');
+            return;
+        }
+        if (e.target === overlay || e.target === closeBtn) closeVideo();
+    });
 
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.classList.remove('active');
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') lightbox.classList.remove('active');
-});
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeVideo();
+        const active = document.activeElement;
+        if ((e.key === 'Enter' || e.key === ' ') && active && active.classList.contains('video-preview')) {
+            e.preventDefault();
+            openVideo(active.dataset.src || 'videos/bin-x-event.mp4');
+        }
+    });
+})();
 
 // =========================================
 // EMAILJS - CONTACT FORM
